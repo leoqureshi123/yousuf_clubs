@@ -1,7 +1,7 @@
 import { useParallax } from '@/hooks/useParallax';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import heroImage from '@assets/generated_images/Hero_background_office_workspace_113c0a0c.png';
+import heroVideo from '@/assets/video.mp4';
 
 export default function HeroSection() {
   const parallaxOffset = useParallax(-0.5);
@@ -20,15 +20,20 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 liquid-ether opacity-40" />
       
-      <div
-        className="absolute inset-0 z-0 opacity-30"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${parallaxOffset}px)`,
-        }}
-      >
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 opacity-30 overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover"
+          style={{
+            transform: `translateY(${parallaxOffset}px)`,
+          }}
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
       </div>
 
